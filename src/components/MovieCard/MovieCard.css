@@ -1,7 +1,38 @@
 .card {
+  width: 20%;
+  height: 30em;
+  margin: 0 1em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   
 }
 
-.card_Footer {
+.poster {
+    position: absolute;
+}
+.card_header {
+    color: blanchedalmond;
+    display: block;
+    background-color: black;
+    opacity: .7;
+    width: 100%;
+    text-align: center;
+    padding: 2em 0
+    
+}
 
+.card_footer {
+  width: 100%;
+    color: blanchedalmond;
+    background-color: black;
+    opacity: .7;
+    vertical-align: bottom;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
 }
