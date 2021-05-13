@@ -24,13 +24,17 @@ export default class Dashboard extends Component {
         this.movieSelect(event);
     }
 
+    focusClose = () => {
+        this.setState({focus: false, movie: ''})
+    }
+
     render() {
         return (
             <main 
             className="dashboard"
             onClick={this.handleClick}>
                 {!this.state.focus && <MovieCarousel movies={this.props.movies} />}
-                {this.state.focus && <MovieFocus movie={this.state.movie} />}
+                {this.state.focus && <MovieFocus movie={this.state.movie} focusClose={this.focusClose}/>}
             </main>
         )
     }

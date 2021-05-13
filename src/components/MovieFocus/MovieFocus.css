@@ -1,0 +1,24 @@
+.focus {
+  box-sizing: border-box;
+  background: yellow;
+  background-size: 100%;
+  min-height: 10em;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.focus>img {
+  width: 100%;
+}
+
+.focus-header {
+
+}
+
+.focus-footer {
+
+}
+
+.focus-close {
+  position: absolute
+}
