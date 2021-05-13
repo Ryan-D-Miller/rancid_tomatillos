@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MovieCard from '../MovieCard/MovieCard';
+import './MovieCarousel.css'
 
 class MovieCarousel extends Component {
   constructor() {
@@ -36,19 +38,24 @@ class MovieCarousel extends Component {
     const movies = []
     for (let i = 0; i < this.state.displayRange; i++) {
       if (i + this.state.displayStart > this.props.movies.length) {
-       movies.push(<MovieCard movie={this.props.movies[this.checkMoviesLength(i + this.state.displayStart)]} />)
+       movies.push(this.props.movies[this.checkMoviesLength(i + this.state.displayStart)])
       }
-      movies.push(<MovieCard movie={this.props.movies[i + this.state.displayStart]} />)
+      movies.push(this.props.movies[i + this.state.displayStart])
     }
     return movies
   }
 
-  render() {
+  displayMovies() {
+    const selectedMovies = this.selectMoviesToDisplay();
+    return selectedMovies.map(m => <MovieCard key={m.id} movie={m} />)
+  }
 
+  render() {
+    
     return (
-      <div>
-        {this.selectMoviesToDisplay()}
-      </div>
+      <section className="carousel">
+        {this.displayMovies()}
+      </section>
     )
   }
 }

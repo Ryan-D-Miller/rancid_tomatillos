@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 import Header from '../Header/Header';
 import movieData from '../../movieData';
+import './App.css';
 
 class App extends Component {
   constructor() {

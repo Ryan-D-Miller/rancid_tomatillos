@@ -1,6 +1,7 @@
 import React from 'react';
 import Filter from '../Filter/Filter';
 import Search from '../Search/Search';
+import './Header.css';
 // import Hamburger from '../Hamburger/Hamburger';
 
 export default function Header({filterMovies}) {
