@@ -6,13 +6,13 @@ import './Header.css';
 
 export default function Header({filterMovies}) {
     return (
-        <div>
+        <header className="header">
           {/* add conditional rendering for hamburger later */}
             <form>
                 {/* <Search /> */}
                 <Filter filterMovies={filterMovies}/>
             </form>
             <img src='' alt='Rancid Tomatillos Logo' />
-        </div>
+        </header>
     )
 }

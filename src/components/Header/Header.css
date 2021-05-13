@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 7em;
+    background-color: #FD6C11;
+    margin-bottom: 50px;
+}
+
+form {
+    margin: 20px 0 20px 20px;
+}
