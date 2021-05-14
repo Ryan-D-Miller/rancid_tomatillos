@@ -1,0 +1,35 @@
+.focus {
+  box-sizing: border-box;
+  max-width: 60em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  justify-self: center;
+}
+
+.focus>img {
+  max-width: 100%;
+  height: auto;
+}
+
+.focus-header {
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+}
+
+.focus-header>h1 {
+  align-self: center;
+}
+
+.focus-header>button {
+  align-self: flex-start;
+}
+
+.focus-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
