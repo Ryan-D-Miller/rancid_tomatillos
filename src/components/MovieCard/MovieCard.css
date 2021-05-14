@@ -10,29 +10,22 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 2px 3px 6px black; 
+  color: white;
 }
 
-.poster {
-    position: absolute;
-}
 .card_header {
-    color: blanchedalmond;
-    display: block;
     background-color: black;
-    opacity: .7;
+    display: block;
+    opacity: .9;
     width: 100%;
     text-align: center;
     padding: 2em 0
-    
 }
 
 .card_footer {
-  width: 100%;
-    color: blanchedalmond;
+    width: 100%;
     background-color: black;
-    opacity: .7;
-    vertical-align: bottom;
-    align-self: flex-end;
+    opacity: .9;
     display: flex;
     justify-content: space-around;
 }

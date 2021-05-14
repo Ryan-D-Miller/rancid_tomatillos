@@ -16,14 +16,12 @@ export default class Filter extends Component {
 
   render() {
     return (
-    <span className="filter">
-      <select  name='selection' onChange={this.handleChange}>
-        <option value=''>Filter movies by...</option>
-        <option value='alphabetically'>Alphabetically</option>
-        <option value='rating'>Rating</option>
-        <option value='release'>Release</option>
+        <select className="filter" name='selection' onChange={this.handleChange}>
+          <option value=''>Filter Movies...</option>
+          <option value='alphabetically'>Alphabetically</option>
+          <option value='rating'>Rating</option>
+          <option value='release'>Release Date</option>
       </select>
-    </span>
     )
   }
 }

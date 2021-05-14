@@ -1,10 +1,10 @@
-
-
-  @import-normalize;
+@import-normalize;
 
 body {
   background-color: white;
   margin: 0;
+  font-family: 'Fascinate', cursive;
+  background: rgba(17, 17, 17, 0.900);
 }
 
 

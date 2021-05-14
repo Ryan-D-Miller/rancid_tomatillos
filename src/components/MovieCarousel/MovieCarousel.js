@@ -49,7 +49,6 @@ class MovieCarousel extends Component {
 
   displayMovies() {
     const selectedMovies = this.selectMoviesToDisplay();
-    console.log(selectedMovies);
     return selectedMovies.map(m => <MovieCard key={m.id} movie={m} />);
   }
 
