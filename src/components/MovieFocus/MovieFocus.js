@@ -1,12 +1,11 @@
 import React from 'react';
 import './MovieFocus.css';
-// import './MovieCard.css'
 
 export default function MovieFocus({ movie, focusClose }) {
   return (
     <div id={movie.id} className="focus">
       <header className="focus-header">
-      <button onClick={focusClose} className='focus-close'>❌</button>
+      <button onClick={focusClose}>❌</button>
         <h1>{movie.title}</h1>
       </header>
       <img src={movie.backdrop_path} alt={movie.title}/>
