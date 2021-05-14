@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
+  box-shadow: 20px 10px 10px black;
 }
 
 .poster {
