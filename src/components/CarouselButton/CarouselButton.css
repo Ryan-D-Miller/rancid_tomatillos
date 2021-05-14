@@ -16,12 +16,10 @@
   transition: all 200ms ease;
 }
 .arrow.left {
-  left: 0;
   -webkit-transform: translate3d(0, -50%, 0) rotate(-135deg);
           transform: translate3d(0, -50%, 0) rotate(-135deg);
 }
 .arrow.right {
-  right: 0;
   -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
           transform: translate3d(0, -50%, 0) rotate(45deg);
 }
@@ -30,10 +28,5 @@
   border-right: .4rem solid #F0B323;
   box-shadow: .2rem -.2rem 0 black;
 }
-.arrow:hover.left {
-  left: -.2rem;
-}
-.arrow:hover.right {
-  right: -.2rem;
-}
+
 
