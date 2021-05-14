@@ -1,29 +1,20 @@
 .carousel_button {
-    background-color: #522B3A;
-    margin: 0 10px;
+    width: 3em;
+    height: 3em;
+    border: none;
+    background: transparent;
+    border-top: .4rem solid black;
+    border-right: .4rem solid black;
+    transition: all .2s ease-out
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border-top: .4rem solid black;
-  border-right: .4rem solid black;
-  box-shadow: 0 0 0 lightgray;
-  -webkit-transition: all 200ms ease;
-  transition: all 200ms ease;
+.arrow-left {
+  transform: rotate(225deg);
 }
-.arrow.left {
-  -webkit-transform: translate3d(0, -50%, 0) rotate(-135deg);
-          transform: translate3d(0, -50%, 0) rotate(-135deg);
+.arrow-right {
+  transform: rotate(45deg)
 }
-.arrow.right {
-  -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
-          transform: translate3d(0, -50%, 0) rotate(45deg);
-}
-.arrow:hover {
+.carousel_button:hover {
   border-top: .4rem solid #F0B323   ;
   border-right: .4rem solid #F0B323;
   box-shadow: .2rem -.2rem 0 black;

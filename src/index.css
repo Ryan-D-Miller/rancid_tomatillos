@@ -1,9 +1,10 @@
 
 
+  @import-normalize;
 
 body {
   background-color: white;
+  margin: 0;
 }
 
-@import-normalize;
 
