@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     height: 7em;
-    background-color: #FD6C11;
+    background-color: black;
     margin-bottom: 50px;
+    color: #F0B323;
 }
 
 form {
@@ -14,4 +15,9 @@ form {
     width: 200px;
     height: 75%;
     margin: 10px 10px 10px 0;
+}
+
+.movie_titles {
+    font-size: 2em;
+    color: #F0B323;
 }
