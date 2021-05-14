@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 7em;
+    background-color: black;
+    margin-bottom: 50px;
+    color: #F0B323;
+}
+
+form {
+    margin: 20px 0 20px 20px;
+}
+
+.logo {
+    width: 200px;
+    height: 75%;
+    margin: 10px 10px 10px 0;
+}
+
+.movie_titles {
+    font-size: 2em;
+    color: #F0B323;
+}
