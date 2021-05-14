@@ -26,8 +26,8 @@
           transform: translate3d(0, -50%, 0) rotate(45deg);
 }
 .arrow:hover {
-  border-top: .4rem solid orange;
-  border-right: .4rem solid orange;
+  border-top: .4rem solid #F0B323   ;
+  border-right: .4rem solid #F0B323;
   box-shadow: .2rem -.2rem 0 black;
 }
 .arrow:hover.left {
