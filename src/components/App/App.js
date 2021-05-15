@@ -8,15 +8,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
+      error: ''
     }
   }
 
-  // componentDidMount() {
-  // put the fetch here
-  // }
+  componentDidMount() {
+    fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => this.setState({movies: data.movies}))
+    .catch(error => this.setState({error: "Somethine went wrong"}))
+  }
   filterMovies = (value) => {
-    console.log(value);
     switch (value) {
       case 'alphabetically':
         // code to filter this.state.movies
@@ -34,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header filterMovies={this.filterMovies}/>
-        <Dashboard movies={this.state.movies} />
+        <Dashboard movies={this.state.movies} error={this.state.error} />
       </div>
     )
   }
