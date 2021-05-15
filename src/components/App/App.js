@@ -20,7 +20,6 @@ class App extends Component {
     .catch(error => this.setState({error: "Somethine went wrong"}))
   }
   filterMovies = (value) => {
-    console.log(value);
     switch (value) {
       case 'alphabetically':
         // code to filter this.state.movies
