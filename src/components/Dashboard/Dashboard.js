@@ -33,6 +33,7 @@ export default class Dashboard extends Component {
             <main 
             className="dashboard"
             onClick={this.handleClick}>
+                {this.props.error && <p>{this.props.error}</p>}
                 {!this.state.focus && this.props.movies.length &&<MovieCarousel movies={this.props.movies} />}
                 {this.state.focus && <MovieFocus movie={this.state.movie} focusClose={this.focusClose}/>}
             </main>

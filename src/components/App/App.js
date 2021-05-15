@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header filterMovies={this.filterMovies}/>
-        <Dashboard movies={this.state.movies} />
+        <Dashboard movies={this.state.movies} error={this.state.error} />
       </div>
     )
   }
