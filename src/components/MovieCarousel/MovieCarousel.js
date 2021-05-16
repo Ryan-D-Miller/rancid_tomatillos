@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import './MovieCarousel.css'
 import CarouselButton from '../CarouselButton/CarouselButton';
 
