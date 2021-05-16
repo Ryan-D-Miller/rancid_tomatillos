@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MovieCarousel from '../MovieCarousel/MovieCarousel';
 import MovieFocus from '../MovieFocus/MovieFocus'
-import './Dashboard.css';
 import MovieCard from '../MovieCard/MovieCard';
+import './Dashboard.css';
 
 export default class Dashboard extends Component {
     constructor() {
