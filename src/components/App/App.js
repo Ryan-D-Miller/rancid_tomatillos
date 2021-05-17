@@ -3,6 +3,9 @@ import Dashboard from '../Dashboard/Dashboard';
 import Header from '../Header/Header';
 import movieData from '../../movieData';
 import './App.css';
+import {
+  getMovies
+} from '../../apiCalls'
 
 class App extends Component {
   constructor() {
@@ -14,11 +17,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
+    // fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    // .then(response => response.json())
+    getMovies()
     .then(data => this.setState({movies: data.movies}))
     .catch(error => this.setState({error: "Somethine went wrong"}))
   }
+  
   filterMovies = (value) => {
     switch (value) {
       case 'alphabetically':

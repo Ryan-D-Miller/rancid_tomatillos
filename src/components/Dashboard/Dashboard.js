@@ -3,6 +3,7 @@ import MovieCarousel from '../MovieCarousel/MovieCarousel';
 import MovieFocus from '../MovieFocus/MovieFocus'
 import MovieCard from '../MovieCard/MovieCard';
 import './Dashboard.css';
+import { getSingleMovie } from '../../apiCalls'
 
 export default class Dashboard extends Component {
     constructor() {
@@ -17,20 +18,14 @@ export default class Dashboard extends Component {
 
     movieSelect = event => {
         const movieId = Number(event.target.id);
-        const movie = this.props.movies.find(m => m.id === movieId);
-        if (movie) {
-            this.setState({focus: true, movie: movie})
-        }
-    }
-
-    handleClick = event => {
-        this.movieSelect(event);
+        getSingleMovie(movieId)
+            .then(data => this.setState({ focus: true, movie: data.movie }))
     }
 
     focusClose = () => {
-        this.setState({focus: false, movie: ''})
+        this.setState({ focus: false, movie: '' })
     }
-    
+
     checkMoviesLength = (rangeCheck) => {
         if (rangeCheck < 0) {
             return this.props.movies.length + rangeCheck;
@@ -68,16 +63,15 @@ export default class Dashboard extends Component {
 
     displayMovies = () => {
         const selectedMovies = this.selectMoviesToDisplay();
-        return selectedMovies.map(m => <MovieCard key={m.id} movie={m} />);
+        return selectedMovies.map(m => <MovieCard key={m.id} movie={m} handleClick={this.movieSelect}/>);
     }
 
     render() {
         return (
             <main
-                className="dashboard"
-                onClick={this.handleClick}>
+                className="dashboard">
                 {this.props.error && <p>{this.props.error}</p>}
-                {!this.state.focus && this.props.movies.length && <MovieCarousel 
+                {!this.state.focus && this.props.movies.length && <MovieCarousel
                     checkMoviesLength={this.checkMoviesLength}
                     displayMovies={this.displayMovies}
                     updateDisplayStart={this.updateDisplayStart} />}
