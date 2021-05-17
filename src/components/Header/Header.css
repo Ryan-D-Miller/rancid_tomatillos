@@ -29,8 +29,16 @@ form>* {
     border-radius: 2px;
 }
 
+form:hover select {
+    cursor: pointer;
+}
+
 .logo {
     height: 100%;
     border-radius: 5px;
     margin-right: 8em;
+}
+
+.logo:hover {
+    cursor: pointer;
 }

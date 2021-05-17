@@ -21,6 +21,7 @@
   border-top: .4rem solid #95ad95;
   border-right: .4rem solid #95ad95;
   box-shadow: .2rem -.2rem 0 black;
+  cursor: pointer;
 }
 
 .carousel-button-wrapper {

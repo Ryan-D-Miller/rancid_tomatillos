@@ -28,6 +28,10 @@
   align-self: flex-start;
 }
 
+.focus-header>button:hover {
+  cursor: pointer;
+}
+
 .focus-footer {
   display: flex;
   align-items: center;
