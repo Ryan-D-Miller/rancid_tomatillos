@@ -1,7 +1,7 @@
 import './MovieCarousel.css'
 import CarouselButton from '../CarouselButton/CarouselButton';
 
-export default function MovieCarousel({displayMovies, updateDisplayStart}) {
+export default function MovieCarousel({displayMovies, updateDisplayStart, movieSelect}) {
     
     return (
       <section className="carousel">
