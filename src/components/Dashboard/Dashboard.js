@@ -17,6 +17,7 @@ export default class Dashboard extends Component {
 
     movieSelect = event => {
         const movieId = Number(event.target.id);
+        console.log(event);
         const movie = this.props.movies.find(m => m.id === movieId);
         if (movie) {
             this.setState({focus: true, movie: movie})
