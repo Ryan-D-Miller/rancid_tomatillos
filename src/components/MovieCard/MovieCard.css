@@ -1,8 +1,10 @@
 .card {
-  width: 18%;
+  width: 100%;
+  min-width: 13em;
   height: 30em;
   margin: 0 1em;
   background-size: cover;
+  background-attachment: initial;
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
@@ -13,19 +15,33 @@
   color: white;
 }
 
-.card_header {
-    background-color: black;
-    display: block;
-    opacity: .9;
-    width: 100%;
-    text-align: center;
-    padding: 2em 0
+.card:hover {
+  cursor: pointer
 }
 
-.card_footer {
-    width: 100%;
-    background-color: black;
-    opacity: .9;
-    display: flex;
-    justify-content: space-around;
+.card-header {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.83);
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 2em 0;
+  transition: opacity .2s ease-in
+}
+
+.card-footer {
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.83);
+  display: flex;
+  justify-content: space-around;
+  transition: opacity .2s ease-in
+}
+
+.card:hover .card-header {
+  opacity: 1;
+}
+
+.card:hover .card-footer {
+  opacity: 1;
 }

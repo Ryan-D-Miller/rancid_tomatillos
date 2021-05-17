@@ -11,9 +11,9 @@
 }
 
 .arrow-left {
-  /* left: 4; */
   transform: translateX(.8em) rotate(225deg);
 }
+
 .arrow-right {
   transform: translateX(-.8em) rotate(45deg)
 }
