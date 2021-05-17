@@ -1,6 +1,7 @@
 describe('Carsouel', () => {
     beforeEach(() => {
-        cy.loadMovies();
+        cy.loadStubs();
+        cy.visit('/')
     });
     it('should return true', () => {
         expect(true).to.equal(true);
