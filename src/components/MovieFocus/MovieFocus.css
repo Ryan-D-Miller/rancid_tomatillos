@@ -11,13 +11,17 @@
   box-shadow: 2px 3px 6px black;
 }
 
+.header_title {
+  padding-bottom: 1em 0;
+}
+
 .focus>img {
   max-width: 100%;
   height: auto;
 }
 
 .focus-header {
-  height: 6em;
+  height: 9em;
   display: flex;
   flex-direction: column;
   padding-bottom: 2em;
@@ -37,6 +41,11 @@
 
 .focus-header>button:hover {
   cursor: pointer;
+}
+
+.overview {
+  padding: 1em 0;
+  font: 15px Arial, sans-serif;
 }
 
 .focus-footer {
