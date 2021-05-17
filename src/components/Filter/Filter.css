@@ -1,12 +1,12 @@
 .filter {
-  position: relative;
+  /* position: relative;
   display: inline-block;
   vertical-align: middle;
-  margin: 10px; /* demo only */
+  margin: 10px; demo only */
 }
 
 .filter select {
-  background-color: #F0B323;
+  /* background-color: #F0B323;
   color: #fff;
   font-size: inherit;
   padding: .5em;
@@ -16,5 +16,5 @@
   border-radius: 3px;
   text-indent: 0.01px;
   text-overflow: '';
-  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+  -webkit-appearance: button; hide default arrow in chrome OSX */
 }

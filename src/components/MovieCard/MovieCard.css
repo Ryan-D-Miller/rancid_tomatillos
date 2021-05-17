@@ -1,38 +1,52 @@
 .card {
-  width: 18%;
+  width: 100%;
+  min-width: 13em;
   height: 30em;
   margin: 0 1em;
   background-size: cover;
+  background-attachment: initial;
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 20px 10px 10px black;
+  box-shadow: 2px 3px 6px black; 
+  color: white;
+  border-radius: 8px;
 }
 
-.poster {
-    position: absolute;
-}
-.card_header {
-    color: blanchedalmond;
-    display: block;
-    background-color: black;
-    opacity: .7;
-    width: 100%;
-    text-align: center;
-    padding: 2em 0
-    
+.card:hover {
+  cursor: pointer
 }
 
-.card_footer {
+.card-header {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.83);
+  display: block;
   width: 100%;
-    color: blanchedalmond;
-    background-color: black;
-    opacity: .7;
-    vertical-align: bottom;
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-around;
+  text-align: center;
+  padding: 2em 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: opacity .2s ease-in
+}
+
+.card-footer {
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.83);
+  display: flex;
+  justify-content: space-around;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: opacity .2s ease-in
+}
+
+.card:hover .card-header {
+  opacity: 1;
+}
+
+.card:hover .card-footer {
+  opacity: 1;
 }

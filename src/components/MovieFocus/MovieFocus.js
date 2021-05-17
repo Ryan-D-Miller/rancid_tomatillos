@@ -5,7 +5,7 @@ export default function MovieFocus({ movie, focusClose }) {
   return (
     <div id={movie.id} className="focus">
       <header className="focus-header">
-      <button onClick={focusClose}>❌</button>
+      <button onClick={focusClose}>x</button>
         <h1>{movie.title}</h1>
       </header>
       <img src={movie.backdrop_path} alt={movie.title}/>
