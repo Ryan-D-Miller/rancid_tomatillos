@@ -10,14 +10,12 @@
 }
 
 .header>h1 {
-    transform: 
+    /* transform:  */
 }
 
 form {
     width: 13em;
     height: 4em;
-    /* position: absolute;
-    left: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +25,6 @@ form {
 }
 
 form>* {
-    /* backgroun */
     height: 2em;
     width: 100%;
     border: none;
