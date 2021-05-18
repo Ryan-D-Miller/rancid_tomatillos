@@ -20,15 +20,15 @@ export default function MovieFocus({ movie, focusClose }) {
         </div>
       </section>
       <footer >
-        <div className="focus-footer top_line">
+        <section className="focus-footer top_line">
           <p className="footer-text">Rating: {movie.average_rating.toFixed(1)}</p>
           <p className="footer-text">Revenue: ${movie.revenue.toLocaleString('en-US')}</p>
           <p className="footer-text">Budget: ${movie.budget.toLocaleString('en-US')}</p>
           <p className="footer-text">Run Time: {movie.runtime} minutes</p>
-        </div>
-        <div className="focus-footer top_line">
+        </section>
+        <section className="focus-footer top_line">
           <p>Genres</p>
-        </div>
+        </section>
         <section className="focus-footer">
           {movie.genres.map(genre => {
             return <p>{genre}</p>
