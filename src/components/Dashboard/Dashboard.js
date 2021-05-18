@@ -3,24 +3,25 @@ import MovieCarousel from '../MovieCarousel/MovieCarousel';
 import MovieFocus from '../MovieFocus/MovieFocus'
 import MovieCard from '../MovieCard/MovieCard';
 import './Dashboard.css';
-import { getSingleMovie } from '../../apiCalls'
+import { getSingleMovie } from '../../apiCalls';
+import { Link, Route } from 'react-router-dom';
 
 export default class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
-            focus: false,
+            // focus: false,
             movie: '',
             displayStart: 0,
             displayRange: 5
         }
     }
 
-    movieSelect = event => {
-        const movieId = Number(event.target.id);
-        getSingleMovie(movieId)
-            .then(data => this.setState({ focus: true, movie: data.movie }))
-    }
+    // movieSelect = id => {
+    //     // const movieId = Number(event.target.id);
+    //     getSingleMovie(id)
+    //         .then(data => this.setState({ focus: true, movie: data.movie }))
+    // }
 
     focusClose = () => {
         this.setState({ focus: false, movie: '' })
@@ -63,7 +64,9 @@ export default class Dashboard extends Component {
 
     displayMovies = () => {
         const selectedMovies = this.selectMoviesToDisplay();
-        return selectedMovies.map(m => <MovieCard key={m.id} movie={m} handleClick={this.movieSelect}/>);
+        return selectedMovies.map(m => <Link to={`/${m.id}`} className="card"><MovieCard key={m.id} movie={m} 
+        // handleClick={this.movieSelect} 
+        /></Link>);
     }
 
     render() {
@@ -71,10 +74,25 @@ export default class Dashboard extends Component {
             <main
                 className="dashboard">
                 {this.props.error && <p>{this.props.error}</p>}
-                {!this.state.focus && this.props.movies.length && <MovieCarousel
-                    checkMoviesLength={this.checkMoviesLength}
-                    displayMovies={this.displayMovies}
-                    updateDisplayStart={this.updateDisplayStart} />}
+                {/* {//do a redirect} */}
+                <Route 
+                    exact
+                    path='/'
+                    render= {() => {
+                        return <MovieCarousel
+                            checkMoviesLength={this.checkMoviesLength}
+                            displayMovies={this.displayMovies}
+                            updateDisplayStart={this.updateDisplayStart} />
+                    }}
+                />
+                    <Route
+                    exact
+                    path='/:id'
+                    render={({match}) => {
+                        const { id } = match.params
+                        return <MovieFocus />
+                    }}
+                    />
                 {this.state.focus && <MovieFocus movie={this.state.movie} focusClose={this.focusClose} />}
             </main>
         )

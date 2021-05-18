@@ -5,8 +5,8 @@ const getMovies = () => {
     .then(response => response.json())
 }
 
-const getSingleMovie = (id) => {
-  return fetch(`${moviesUrl}/${id}`)
+const getSingleMovie = async (id) => {
+  return await fetch(`${moviesUrl}/${id}`)
     .then(response => response.json())
 }
 
