@@ -13,7 +13,12 @@ export default function MovieFocus({ movie, focusClose }) {
         </div>
       </header>
       <img src={movie.backdrop_path} alt={movie.title}/>
-      <section className="overview">{movie.overview}</section>
+      <section className="overview">
+        <p>Overview:</p>
+        <div>
+          {movie.overview}
+        </div>
+      </section>
       <footer >
         <div className="focus-footer">
           <p className="footer-text">Rating: {movie.average_rating.toFixed(1)}</p>
