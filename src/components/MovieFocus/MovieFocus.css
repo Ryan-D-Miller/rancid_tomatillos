@@ -55,3 +55,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.top_line {
+  border-top: .1em solid white;
+}

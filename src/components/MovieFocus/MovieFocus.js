@@ -8,7 +8,7 @@ export default function MovieFocus({ movie, focusClose }) {
       <button onClick={focusClose}>x</button>
         <div className="header_title">
             <h1>{movie.title}</h1>
-            <p>{movie.tagline}</p>
+            <p className="top_line">{movie.tagline}</p>
             <p>Release Date: {movie.release_date}</p>
         </div>
       </header>
@@ -20,20 +20,20 @@ export default function MovieFocus({ movie, focusClose }) {
         </div>
       </section>
       <footer >
-        <div className="focus-footer">
+        <div className="focus-footer top_line">
           <p className="footer-text">Rating: {movie.average_rating.toFixed(1)}</p>
           <p className="footer-text">Revenue: ${movie.revenue.toLocaleString('en-US')}</p>
           <p className="footer-text">Budget: ${movie.budget.toLocaleString('en-US')}</p>
           <p className="footer-text">Run Time: {movie.runtime} minutes</p>
         </div>
-        <div className="focus-footer">
+        <div className="focus-footer top_line">
           <p>Genres</p>
         </div>
-        <div className="focus-footer">
+        <section className="focus-footer">
           {movie.genres.map(genre => {
             return <p>{genre}</p>
           })}
-        </div>
+        </section>
       </footer>
     </div>
   )
