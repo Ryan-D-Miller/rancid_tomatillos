@@ -1,4 +1,5 @@
 .focus {
+  font-family: 'Limelight';
   box-sizing: border-box;
   max-width: 70em;
   display: flex;
@@ -13,6 +14,7 @@
 
 .header_title {
   padding-bottom: 1em 0;
+
 }
 
 .focus>img {
