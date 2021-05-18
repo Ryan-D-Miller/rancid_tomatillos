@@ -12,7 +12,8 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      error: ''
+      error: '',
+      fetchDone: false
     }
   }
 
@@ -20,20 +21,20 @@ class App extends Component {
     // fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     // .then(response => response.json())
     getMovies()
-    .then(data => this.setState({movies: data.movies}))
-    .catch(error => this.setState({error: "Somethine went wrong"}))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true }))
+      .catch(error => this.setState({ error: "Somethine went wrong" }))
   }
-  
+
   filterMovies = (value) => {
     switch (value) {
       case 'alphabetically':
         // code to filter this.state.movies
         break;
       case 'release':
-        
+
         break;
       case 'rating':
-        
+
         break;
     }
   }
@@ -41,8 +42,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header filterMovies={this.filterMovies}/>
-        <Dashboard movies={this.state.movies} error={this.state.error} />
+        <Header filterMovies={this.filterMovies} />
+        {this.state.fetchDone && <Dashboard movies={this.state.movies} />}
+        {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
   }
