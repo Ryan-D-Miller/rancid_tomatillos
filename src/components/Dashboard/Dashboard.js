@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
 
     displayMovies = () => {
         const selectedMovies = this.selectMoviesToDisplay();
-        return selectedMovies.map(m => <Link to={`/${m.id}`} className="card"><MovieCard key={m.id} movie={m} 
+        return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
         // handleClick={this.movieSelect} 
         /></Link>);
     }
@@ -90,7 +90,7 @@ export default class Dashboard extends Component {
                     path='/:id'
                     render={({match}) => {
                         const { id } = match.params
-                        return <MovieFocus />
+                        return <MovieFocus id={id}/>
                     }}
                     />
                 {this.state.focus && <MovieFocus movie={this.state.movie} focusClose={this.focusClose} />}
