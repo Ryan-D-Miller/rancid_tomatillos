@@ -1,6 +1,6 @@
 .focus {
   box-sizing: border-box;
-  max-width: 60em;
+  max-width: 70em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
