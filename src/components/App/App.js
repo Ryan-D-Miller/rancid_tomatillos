@@ -43,7 +43,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header filterMovies={this.filterMovies} />
-        {this.state.fetchDone && <Dashboard movies={this.state.movies} error={this.state.error} />}
+        {this.state.fetchDone && <Dashboard movies={this.state.movies} />}
+        {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
   }

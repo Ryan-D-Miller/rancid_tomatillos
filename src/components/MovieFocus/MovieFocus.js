@@ -12,20 +12,18 @@ export default class MovieFocus extends Component {
   }
 
   componentDidMount() {
-    console.log("i mounted")
     getSingleMovie(parseInt(this.props.id))
       .then(data => this.setState({movie: data.movie}))
   }
 
   render = () => {
     const {movie} = this.state
-    console.log(movie)
     return (
       <div>
         {movie &&
           <div id={movie.id} className="focus">
             <header className="focus-header">
-              <Link to='/'><button>x</button></Link>
+            <button><Link to='/'>x</Link></button>
               <div className="header_title">
                 <h1>{movie.title}</h1>
                 <p className="top_line">{movie.tagline}</p>

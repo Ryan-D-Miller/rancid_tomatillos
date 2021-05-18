@@ -73,27 +73,25 @@ export default class Dashboard extends Component {
         return (
             <main
                 className="dashboard">
-                {this.props.error && <p>{this.props.error}</p>}
                 {/* {//do a redirect} */}
-                <Route 
+                <Route
                     exact
                     path='/'
-                    render= {() => {
+                    render={() => {
                         return <MovieCarousel
                             checkMoviesLength={this.checkMoviesLength}
                             displayMovies={this.displayMovies}
                             updateDisplayStart={this.updateDisplayStart} />
                     }}
                 />
-                    <Route
+                <Route
                     exact
                     path='/:id'
-                    render={({match}) => {
+                    render={({ match }) => {
                         const { id } = match.params
-                        return <MovieFocus id={id}/>
+                        return <MovieFocus id={id} />
                     }}
-                    />
-                {this.state.focus && <MovieFocus movie={this.state.movie} focusClose={this.focusClose} />}
+                />
             </main>
         )
     }

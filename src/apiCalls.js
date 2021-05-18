@@ -2,13 +2,22 @@ const moviesUrl = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
 
 const getMovies = () => {
   return fetch(moviesUrl)
-    .then(response => response.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      throw new Error(res)
+    })
 }
 
 const getSingleMovie = (id) => {
-  console.log(id);
   return fetch(`${moviesUrl}/${id}`)
-    .then(response => response.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      throw new Error(res)
+    })
 }
 
 export {
