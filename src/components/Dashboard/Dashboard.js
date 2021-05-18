@@ -10,7 +10,7 @@ export default class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
-            // focus: false,
+            focus: false,
             movie: '',
             displayStart: 0,
             displayRange: 5
