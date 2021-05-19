@@ -20,14 +20,15 @@ class App extends Component {
 
   componentDidMount() {
     getMovies()
-      .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: data.movies }))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: [...data.movies] }))
       .catch(error => this.setState({ error: "Somethine went wrong" }));
   }
 
   filterMovies = (value) => {
     switch (value) {
       case 'alphabetically':
-        this.setState({ movies: this.state.movies.sort((a, b) => {
+        this.setState({
+          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
           if(a.title < b.title) {
             return -1;
           }
@@ -39,7 +40,7 @@ class App extends Component {
         break;
       case 'release':
         this.setState({
-          movies: this.state.movies.sort((a, b) => {
+          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
             if (a.release_date < b.release_date) {
               return 1;
             }
@@ -52,19 +53,27 @@ class App extends Component {
         break;
       case 'rating':
         this.setState({
-          movies: this.state.movies.sort((a, b) => {
+          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
             return b.average_rating - a.average_rating})
         })
         
+        break;
+      case '':
+        console.log("im here")
+        this.setState({
+          moviesToDisplay: this.state.movies
+        });
         break;
     }
   }
 
   searchMovies = (query) => {
-    this.setState({moviesToDisplay: this.state.movies})
+
     if (query && this.state.movies.some(m => m.title.toUpperCase().includes(query))) {
       let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(query));
       this.setState({moviesToDisplay: filteredMovies})
+    } else {
+      this.setState({ moviesToDisplay: this.state.movies })
     }
   }
 
