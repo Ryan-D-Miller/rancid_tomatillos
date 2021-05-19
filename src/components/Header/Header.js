@@ -9,11 +9,10 @@ export default function Header({filterMovies, searchMovies}) {
     return (
         <header className="header">
           {/* add conditional rendering for hamburger later */}
-            <form>
+            <form onSubmit={e => { e.preventDefault(); }}>
                 <Search searchMovies={searchMovies}/>
                 <Filter filterMovies={filterMovies}/>
             </form>
-            {/* <h1 className="movie_titles">Helloooo!</h1> */}
             <img className="logo" src={logo} alt='Rancid Tomatillos Logo'/>
         </header>
     )
