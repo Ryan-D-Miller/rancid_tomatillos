@@ -13,7 +13,9 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      fetchDone: false
+      fetchDone: false,
+      query: '',
+      moviesToDisplay: []
     }
   }
 
@@ -21,8 +23,9 @@ class App extends Component {
     // fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     // .then(response => response.json())
     getMovies()
-      .then(data => this.setState({ movies: data.movies, fetchDone: true }))
-      .catch(error => this.setState({ error: "Somethine went wrong" }))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: data.movies }))
+      .catch(error => this.setState({ error: "Somethine went wrong" }));
+
   }
 
   filterMovies = (value) => {
@@ -39,11 +42,22 @@ class App extends Component {
     }
   }
 
+  searchMovies = event => {
+    event.preventDefault();
+    this.setState({ query: event.target.value.toUpperCase() });
+    if (this.state.query) {
+      let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(this.state.query));
+      return this.setState({ moviesToDisplay: filteredMovies })
+    }
+    this.setState({moviesToDisplay: this.state.movies})
+    // console.log(movies);
+  }
+
   render() {
     return (
       <div className="App">
-        <Header filterMovies={this.filterMovies} />
-        {this.state.fetchDone && <Dashboard movies={this.state.movies} />}
+        <Header filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
+        {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} />}
         {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
