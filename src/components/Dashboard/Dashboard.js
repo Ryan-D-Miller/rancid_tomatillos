@@ -45,12 +45,16 @@ export default class Dashboard extends Component {
     }
 
     selectMoviesToDisplay = () => {
-        const movies = []
+        let movies = []
         for (let i = 0; i < this.state.displayRange; i++) {
-            if (i + this.state.displayStart > this.props.movies.length - 1) {
-                movies.push(this.props.movies[this.checkMoviesLength(i + this.state.displayStart)])
+            if (this.props.movies.length > this.state.displayRange) {
+                if (i + this.state.displayStart > this.props.movies.length - 1) {
+                    movies.push(this.props.movies[this.checkMoviesLength(i + this.state.displayStart)])
+                } else {
+                    movies.push(this.props.movies[i + this.state.displayStart])
+                }
             } else {
-                movies.push(this.props.movies[i + this.state.displayStart])
+                movies = [...this.props.movies]
             }
         }
         return movies

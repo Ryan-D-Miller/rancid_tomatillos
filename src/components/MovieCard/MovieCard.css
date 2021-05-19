@@ -1,6 +1,7 @@
 .card {
   width: 100%;
   min-width: 13em;
+  max-width: 17em;
   height: 30em;
   margin: 0 .5em;
   background-size: cover;

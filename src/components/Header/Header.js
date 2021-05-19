@@ -5,12 +5,12 @@ import './Header.css';
 import logo from "../../assets/rancid_tomatillos_logo.jpg"
 // import Hamburger from '../Hamburger/Hamburger';
 
-export default function Header({filterMovies}) {
+export default function Header({filterMovies, searchMovies}) {
     return (
         <header className="header">
           {/* add conditional rendering for hamburger later */}
             <form>
-                <Search />
+                <Search searchMovies={searchMovies}/>
                 <Filter filterMovies={filterMovies}/>
             </form>
             <img className="logo" src={logo} alt='Rancid Tomatillos Logo'/>

@@ -14,13 +14,14 @@ class App extends Component {
       movies: [],
       error: '',
       fetchDone: false,
+      moviesToDisplay: []
     }
   }
 
   componentDidMount() {
     getMovies()
-      .then(data => this.setState({ movies: data.movies, fetchDone: true }))
-      .catch(error => this.setState({ error: "Somethine went wrong" }))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: data.movies }))
+      .catch(error => this.setState({ error: "Somethine went wrong" }));
   }
 
   filterMovies = (value) => {
@@ -59,11 +60,19 @@ class App extends Component {
     }
   }
 
+  searchMovies = (query) => {
+    this.setState({moviesToDisplay: this.state.movies})
+    if (query && this.state.movies.some(m => m.title.toUpperCase().includes(query))) {
+      let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(query));
+      this.setState({moviesToDisplay: filteredMovies})
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Header filterMovies={this.filterMovies} />
-        {this.state.fetchDone && <Dashboard movies={this.state.movies} />}
+        <Header filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
+        {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} />}
         {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
