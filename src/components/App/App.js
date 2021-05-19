@@ -14,13 +14,12 @@ class App extends Component {
       movies: [],
       error: '',
       fetchDone: false,
-      movieData: []
     }
   }
 
   componentDidMount() {
     getMovies()
-      .then(data => this.setState({ movies: data.movies, fetchDone: true, movieData: data.movies }))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true }))
       .catch(error => this.setState({ error: "Somethine went wrong" }))
   }
 
