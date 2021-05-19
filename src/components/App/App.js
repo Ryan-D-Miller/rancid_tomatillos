@@ -14,7 +14,6 @@ class App extends Component {
       movies: [],
       error: '',
       fetchDone: false,
-      query: '',
       moviesToDisplay: []
     }
   }
@@ -25,7 +24,6 @@ class App extends Component {
     getMovies()
       .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: data.movies }))
       .catch(error => this.setState({ error: "Somethine went wrong" }));
-
   }
 
   filterMovies = (value) => {
@@ -42,15 +40,12 @@ class App extends Component {
     }
   }
 
-  searchMovies = event => {
-    event.preventDefault();
-    this.setState({ query: event.target.value.toUpperCase() });
-    if (this.state.query) {
-      let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(this.state.query));
-      return this.setState({ moviesToDisplay: filteredMovies })
-    }
+  searchMovies = (query) => {
     this.setState({moviesToDisplay: this.state.movies})
-    // console.log(movies);
+    if (query && this.state.movies.some(m => m.title.toUpperCase().includes(query))) {
+      let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(query));
+      this.setState({moviesToDisplay: filteredMovies})
+    }
   }
 
   render() {
