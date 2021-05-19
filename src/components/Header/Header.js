@@ -13,7 +13,6 @@ export default function Header({filterMovies}) {
                 <Search />
                 <Filter filterMovies={filterMovies}/>
             </form>
-            {/* <h1 className="movie_titles">Helloooo!</h1> */}
             <img className="logo" src={logo} alt='Rancid Tomatillos Logo'/>
         </header>
     )

@@ -13,28 +13,49 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      fetchDone: false
+      fetchDone: false,
+      movieData: []
     }
   }
 
   componentDidMount() {
-    // fetch(' https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    // .then(response => response.json())
     getMovies()
-      .then(data => this.setState({ movies: data.movies, fetchDone: true }))
+      .then(data => this.setState({ movies: data.movies, fetchDone: true, movieData: data.movies }))
       .catch(error => this.setState({ error: "Somethine went wrong" }))
   }
 
   filterMovies = (value) => {
     switch (value) {
       case 'alphabetically':
-        // code to filter this.state.movies
+        this.setState({ movies: this.state.movies.sort((a, b) => {
+          if(a.title < b.title) {
+            return -1;
+          }
+          if(a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        })})
         break;
       case 'release':
-
+        this.setState({
+          movies: this.state.movies.sort((a, b) => {
+            if (a.release_date < b.release_date) {
+              return 1;
+            }
+            if (a.release_date > b.release_date) {
+              return -1;
+            }
+            return 0;
+          })
+        })
         break;
       case 'rating':
-
+        this.setState({
+          movies: this.state.movies.sort((a, b) => {
+            return b.average_rating - a.average_rating})
+        })
+        
         break;
     }
   }

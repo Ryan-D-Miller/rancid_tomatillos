@@ -17,12 +17,6 @@ export default class Dashboard extends Component {
         }
     }
 
-    // movieSelect = id => {
-    //     // const movieId = Number(event.target.id);
-    //     getSingleMovie(id)
-    //         .then(data => this.setState({ focus: true, movie: data.movie }))
-    // }
-
     focusClose = () => {
         this.setState({ focus: false, movie: '' })
     }
@@ -65,7 +59,6 @@ export default class Dashboard extends Component {
     displayMovies = () => {
         const selectedMovies = this.selectMoviesToDisplay();
         return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
-        // handleClick={this.movieSelect} 
         /></Link>);
     }
 
@@ -73,7 +66,6 @@ export default class Dashboard extends Component {
         return (
             <main
                 className="dashboard">
-                {/* {//do a redirect} */}
                 <Route
                     exact
                     path='/'
