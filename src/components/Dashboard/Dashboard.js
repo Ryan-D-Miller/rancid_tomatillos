@@ -4,7 +4,7 @@ import MovieFocus from '../MovieFocus/MovieFocus'
 import MovieCard from '../MovieCard/MovieCard';
 import './Dashboard.css';
 import { getSingleMovie } from '../../apiCalls';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch, Redirect } from 'react-router-dom';
 
 export default class Dashboard extends Component {
     constructor() {
@@ -72,24 +72,27 @@ export default class Dashboard extends Component {
         return (
             <main
                 className="dashboard">
-                <Route
-                    exact
-                    path='/'
-                    render={() => {
-                        return <MovieCarousel
-                            checkMoviesLength={this.checkMoviesLength}
-                            displayMovies={this.displayMovies}
-                            updateDisplayStart={this.updateDisplayStart} />
-                    }}
-                />
-                <Route
-                    exact
-                    path='/:id'
-                    render={({ match }) => {
-                        const { id } = match.params
-                        return <MovieFocus id={id} />
-                    }}
-                />
+                <Switch>
+                    <Route
+                        exact
+                        path='/'
+                        render={() => {
+                            return <MovieCarousel
+                                checkMoviesLength={this.checkMoviesLength}
+                                displayMovies={this.displayMovies}
+                                updateDisplayStart={this.updateDisplayStart} />
+                        }}
+                    />
+                    <Route
+                        exact
+                        path='/:id'
+                        render={({ match }) => {
+                            const { id } = match.params
+                            return <MovieFocus id={id} />
+                        }}
+                    />
+                    <Redirect to="/" />
+                </Switch>
             </main>
         )
     }
