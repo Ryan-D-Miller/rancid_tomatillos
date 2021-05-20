@@ -136,7 +136,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
+        <Header movies={this.state.moviesToDisplay} filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
         {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} filtered={this.state.filtered} 
           checkMoviesLength={this.checkMoviesLength}
           displayMovies={this.displayMovies}
