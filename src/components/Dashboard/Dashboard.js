@@ -1,74 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MovieCarousel from '../MovieCarousel/MovieCarousel';
 import MovieFocus from '../MovieFocus/MovieFocus'
-import MovieCard from '../MovieCard/MovieCard';
 import './Dashboard.css';
-import { getSingleMovie } from '../../apiCalls';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import {  Route, Switch, Redirect } from 'react-router-dom';
 
-export default class Dashboard extends Component {
-    constructor() {
-        super();
-        this.state = {
-            focus: false,
-            movie: '',
-            displayStart: 0,
-            displayRange: 5
-        }
-    }
+export default function Dashboard(props) {
 
-    focusClose = () => {
-        this.setState({ focus: false, movie: '' })
-    }
-
-    checkMoviesLength = (rangeCheck) => {
-        if (rangeCheck < 0) {
-            return this.props.movies.length + rangeCheck;
-        } else if (rangeCheck > this.props.movies.length - 1) {
-            return (rangeCheck - this.props.movies.length);
-        }
-        return rangeCheck;
-    }
-
-    updateDisplayStart = (direction) => {
-        if (direction === 'left') {
-            const startingIndex = this.checkMoviesLength(this.state.displayStart - this.state.displayRange)
-            this.setState({ displayStart: startingIndex })
-        } else {
-            const startingIndex = this.checkMoviesLength(this.state.displayStart + this.state.displayRange)
-            this.setState({ displayStart: startingIndex })
-        }
-    }
-
-    updateDisplayRange = (start, end) => {
-        this.setState({ displayStart: start, displayEnd: end })
-    }
-
-    selectMoviesToDisplay = () => {
-        let movies = []
-        for (let i = 0; i < this.state.displayRange; i++) {
-            if (this.props.movies.length > this.state.displayRange) {
-                if (i + this.state.displayStart > this.props.movies.length - 1) {
-                    movies.push(this.props.movies[this.checkMoviesLength(i + this.state.displayStart)])
-                } else {
-                    movies.push(this.props.movies[i + this.state.displayStart])
-                }
-            } else {
-                movies = [...this.props.movies]
-            }
-        }
-        return movies
-    }
-
-    displayMovies = () => {
-        if (this.props.movies) {
-            const selectedMovies = this.selectMoviesToDisplay();
-            return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
-            /></Link>);
-        }
-    }
-
-    render() {
         return (
             <main
                 className="dashboard">
@@ -78,9 +15,9 @@ export default class Dashboard extends Component {
                         path='/'
                         render={() => {
                             return <MovieCarousel
-                                checkMoviesLength={this.checkMoviesLength}
-                                displayMovies={this.displayMovies}
-                                updateDisplayStart={this.updateDisplayStart} />
+                                checkMoviesLength={props.checkMoviesLength}
+                                displayMovies={props.displayMovies}
+                                updateDisplayStart={props.updateDisplayStart} />
                         }}
                     />
                     <Route
@@ -96,4 +33,3 @@ export default class Dashboard extends Component {
             </main>
         )
     }
-}

@@ -6,6 +6,8 @@ import './App.css';
 import {
   getMovies
 } from '../../apiCalls'
+import { Link} from 'react-router-dom';
+import MovieCard from '../MovieCard/MovieCard';
 
 class App extends Component {
   constructor() {
@@ -14,7 +16,9 @@ class App extends Component {
       movies: [],
       error: '',
       fetchDone: false,
-      moviesToDisplay: []
+      moviesToDisplay: [],
+      displayStart: 0,
+      displayRange: 5
     }
   }
 
@@ -37,7 +41,7 @@ class App extends Component {
                 return 1;
               }
               return 0;
-            })
+            }), displayStart: 0
           })
           break;
         case 'release':
@@ -50,19 +54,18 @@ class App extends Component {
                 return -1;
               }
               return 0;
-            })
+            }), displayStart: 0
           })
           break;
         case 'rating':
           this.setState({
             moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
               return b.average_rating - a.average_rating
-            })
+            }), displayStart: 0
           })
 
           break;
         case '':
-          console.log("im here")
           this.setState({
             moviesToDisplay: this.state.movies
           });
@@ -82,11 +85,62 @@ class App extends Component {
     }
   }
 
+  checkMoviesLength = (rangeCheck) => {
+    if (rangeCheck < 0) {
+      return this.state.moviesToDisplay.length + rangeCheck;
+    } else if (rangeCheck > this.state.moviesToDisplay.length - 1) {
+      return (rangeCheck - this.state.moviesToDisplay.length);
+    }
+    return rangeCheck;
+  }
+
+  updateDisplayStart = (direction) => {
+    if (direction === 'left') {
+      const startingIndex = this.checkMoviesLength(this.state.displayStart - this.state.displayRange)
+      this.setState({ displayStart: startingIndex })
+    } else {
+      const startingIndex = this.checkMoviesLength(this.state.displayStart + this.state.displayRange)
+      this.setState({ displayStart: startingIndex })
+    }
+  }
+
+  updateDisplayRange = (start, end) => {
+    this.setState({ displayStart: start, displayEnd: end })
+  }
+
+  selectMoviesToDisplay = () => {
+    let movies = []
+    for (let i = 0; i < this.state.displayRange; i++) {
+      if (this.state.moviesToDisplay.length > this.state.displayRange) {
+        if (i + this.state.displayStart > this.state.moviesToDisplay.length - 1) {
+          movies.push(this.state.moviesToDisplay[this.checkMoviesLength(i + this.state.displayStart)])
+        } else {
+          movies.push(this.state.moviesToDisplay[i + this.state.displayStart])
+        }
+      } else {
+        movies = [...this.state.moviesToDisplay]
+      }
+    }
+    return movies
+  }
+
+
+    displayMovies = () => {
+        if (this.state.moviesToDisplay) {
+            const selectedMovies = this.selectMoviesToDisplay();
+            return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
+            /></Link>);
+        }
+    }
+
   render() {
     return (
       <div className="App">
         <Header filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
-        {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} />}
+        {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} filtered={this.state.filtered} 
+          checkMoviesLength={this.checkMoviesLength}
+          displayMovies={this.displayMovies}
+          updateDisplayStart={this.updateDisplayStart} />}
         {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
