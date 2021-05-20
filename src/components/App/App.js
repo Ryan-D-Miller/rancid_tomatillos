@@ -25,47 +25,49 @@ class App extends Component {
   }
 
   filterMovies = (value) => {
-    switch (value) {
-      case 'alphabetically':
-        this.setState({
-          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
-            if (a.title < b.title) {
-              return -1;
-            }
-            if (a.title > b.title) {
-              return 1;
-            }
-            return 0;
+    if (this.state.moviesToDisplay) {
+      switch (value) {
+        case 'alphabetically':
+          this.setState({
+            moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
+              if (a.title < b.title) {
+                return -1;
+              }
+              if (a.title > b.title) {
+                return 1;
+              }
+              return 0;
+            })
           })
-        })
-        break;
-      case 'release':
-        this.setState({
-          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
-            if (a.release_date < b.release_date) {
-              return 1;
-            }
-            if (a.release_date > b.release_date) {
-              return -1;
-            }
-            return 0;
+          break;
+        case 'release':
+          this.setState({
+            moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
+              if (a.release_date < b.release_date) {
+                return 1;
+              }
+              if (a.release_date > b.release_date) {
+                return -1;
+              }
+              return 0;
+            })
           })
-        })
-        break;
-      case 'rating':
-        this.setState({
-          moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
-            return b.average_rating - a.average_rating
+          break;
+        case 'rating':
+          this.setState({
+            moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
+              return b.average_rating - a.average_rating
+            })
           })
-        })
 
-        break;
-      case '':
-        console.log("im here")
-        this.setState({
-          moviesToDisplay: this.state.movies
-        });
-        break;
+          break;
+        case '':
+          console.log("im here")
+          this.setState({
+            moviesToDisplay: this.state.movies
+          });
+          break;
+      }
     }
   }
 
