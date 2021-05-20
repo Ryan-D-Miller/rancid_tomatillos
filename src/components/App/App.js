@@ -23,9 +23,37 @@ class App extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("resize", this.handleResize)
+    this.handleResize();
     getMovies()
       .then(data => this.setState({ movies: data.movies, fetchDone: true, moviesToDisplay: [...data.movies] }))
       .catch(error => this.setState({ error: "Somethine went wrong" }));
+  }
+
+  componentWillUnmount() {
+    window.addEventListener("resize", this.handleResize)
+  }
+
+  handleResize = (e) => {
+    const windowWidth = window.innerWidth
+    this.breakPoints(windowWidth);
+  }
+
+  breakPoints = (windowWidth) => {
+    if (windowWidth < 625 && this.state.displayRange != 1) {
+      this.setState({ displayRange: 1 })
+    }
+    else if (windowWidth < 865 && this.state.displayRange != 2 && windowWidth > 625) {
+      this.setState({ displayRange: 2 })
+    }
+    else if (windowWidth < 1076 && this.state.displayRange > 3 && windowWidth > 865) {
+      this.setState({ displayRange: 3 })
+    }
+      else if (windowWidth < 1288 && this.state.displayRange != 4 && windowWidth > 1076) {
+        this.setState({ displayRange: 4 })
+    } else if (windowWidth > 1288 && this.state.displayRange != 5) {
+      this.setState({ displayRange: 5 })
+    }
   }
 
   filterMovies = (value) => {
