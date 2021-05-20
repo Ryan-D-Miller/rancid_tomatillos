@@ -29,14 +29,15 @@ class App extends Component {
       case 'alphabetically':
         this.setState({
           moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
-          if(a.title < b.title) {
-            return -1;
-          }
-          if(a.title > b.title) {
-            return 1;
-          }
-          return 0;
-        })})
+            if (a.title < b.title) {
+              return -1;
+            }
+            if (a.title > b.title) {
+              return 1;
+            }
+            return 0;
+          })
+        })
         break;
       case 'release':
         this.setState({
@@ -54,9 +55,10 @@ class App extends Component {
       case 'rating':
         this.setState({
           moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
-            return b.average_rating - a.average_rating})
+            return b.average_rating - a.average_rating
+          })
         })
-        
+
         break;
       case '':
         console.log("im here")
@@ -68,10 +70,11 @@ class App extends Component {
   }
 
   searchMovies = (query) => {
-
     if (query && this.state.movies.some(m => m.title.toUpperCase().includes(query))) {
       let filteredMovies = this.state.movies.filter(m => m.title.toUpperCase().includes(query));
-      this.setState({moviesToDisplay: filteredMovies})
+      this.setState({ moviesToDisplay: filteredMovies })
+    } else if (query && !this.state.movies.some(m => m.title.toUpperCase().includes(query))) {
+      this.setState({ moviesToDisplay: '' })
     } else {
       this.setState({ moviesToDisplay: this.state.movies })
     }

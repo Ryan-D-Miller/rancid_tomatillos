@@ -61,9 +61,17 @@ export default class Dashboard extends Component {
     }
 
     displayMovies = () => {
-        const selectedMovies = this.selectMoviesToDisplay();
-        return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
-        /></Link>);
+        if (this.props.movies) {
+            const selectedMovies = this.selectMoviesToDisplay();
+            return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
+            /></Link>);
+        }
+    }
+
+    displaySearchError = () => {
+        if (!this.props.movies) {
+            return <p>Sorry</p>
+        }
     }
 
     render() {
@@ -77,7 +85,8 @@ export default class Dashboard extends Component {
                         return <MovieCarousel
                             checkMoviesLength={this.checkMoviesLength}
                             displayMovies={this.displayMovies}
-                            updateDisplayStart={this.updateDisplayStart} />
+                            updateDisplayStart={this.updateDisplayStart}
+                            displaySearchError={this.displaySearchError} />
                     }}
                 />
                 <Route
