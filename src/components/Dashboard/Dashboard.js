@@ -68,12 +68,6 @@ export default class Dashboard extends Component {
         }
     }
 
-    displaySearchError = () => {
-        if (!this.props.movies) {
-            return <p>Sorry</p>
-        }
-    }
-
     render() {
         return (
             <main
@@ -85,8 +79,7 @@ export default class Dashboard extends Component {
                         return <MovieCarousel
                             checkMoviesLength={this.checkMoviesLength}
                             displayMovies={this.displayMovies}
-                            updateDisplayStart={this.updateDisplayStart}
-                            displaySearchError={this.displaySearchError} />
+                            updateDisplayStart={this.updateDisplayStart} />
                     }}
                 />
                 <Route
