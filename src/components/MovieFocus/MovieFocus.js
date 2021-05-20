@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './MovieFocus.css';
 import { Link } from 'react-router-dom';
 import { getSingleMovie } from '../../apiCalls';
+import { Redirect } from 'react-router-dom';
 // ({ movie, focusClose })
 export default class MovieFocus extends Component {
   constructor() {
@@ -14,6 +15,7 @@ export default class MovieFocus extends Component {
   componentDidMount() {
     getSingleMovie(parseInt(this.props.id))
       .then(data => this.setState({movie: data.movie}))
+      .catch(err => console.log(err))
   }
 
   render = () => {
