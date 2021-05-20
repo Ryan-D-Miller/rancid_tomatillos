@@ -17,7 +17,7 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <select className="filter" name='selection' onChange={this.handleChange} onSubmit={e => { e.preventDefault(); }}>
+      <select disabled={this.props.movies ? false : true} className="filter" name='selection' onChange={this.handleChange} onSubmit={e => { e.preventDefault(); }}>
           <option value=''>Filter Movies...</option>
           <option value='alphabetically'>Alphabetically</option>
           <option value='rating'>Rating</option>
