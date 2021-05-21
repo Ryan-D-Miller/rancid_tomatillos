@@ -21,7 +21,7 @@ top: 33px; */
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #a90008;
 }
 
 /* Position and sizing of clickable cross button */
@@ -32,7 +32,7 @@ top: 33px; */
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: #373a47;
 }
 
 /*
@@ -81,13 +81,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* margin-top: 0.3em; */
-  /* margin-left: 7em; */
-  /* margin-bottom: .1em; */
+  border-radius: 2px;
+  border: none;
 }
 
 .bm-item-list > div > input {
-  margin-bottom: 0.8em;
+  margin-bottom: 0.4em;
 }
 
 /* Styling of overlay */
