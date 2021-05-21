@@ -92,5 +92,5 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   left: 0 !important;
-  background: none !important;
+  background: rgba(0, 0, 0, 0.1)!important;
 }
