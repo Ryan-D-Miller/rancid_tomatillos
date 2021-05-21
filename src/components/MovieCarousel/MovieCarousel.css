@@ -1,22 +1,25 @@
-.carousel{
-    box-sizing: border-box;
-    margin: 5em 0 0 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 94%;
-    height: 100%;
+.carousel {
+  box-sizing: border-box;
+  margin: 5em 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 94%;
+  height: 100%;
 }
 
 .search-error {
-    color: black;
-    width: 70%;
-    font-size: 3em;
+  color: black;
+  width: 70%;
+  font-size: 3em;
 }
 
 @media only screen and (max-width: 625px) {
-    .search-error {
-        padding-top: 2em;
-    }
+  .search-error {
+    padding-top: 2em;
+  }
+  .carousel {
+    padding-top: 2em;
+  }
 }
