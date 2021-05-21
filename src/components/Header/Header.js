@@ -28,14 +28,6 @@ export default function Header({ filterMovies, searchMovies, movies }) {
   return (
     <header className='header'>
       {windowWidth < 625 ? hamburger : defaultForm}
-      {/* <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <Search searchMovies={searchMovies} />
-        <Filter movies={movies} filterMovies={filterMovies} />
-      </form> */}
       <Link to={'/'} className='logo'>
         <img className='logo' src={logo} alt='Rancid Tomatillos Logo' />
       </Link>
