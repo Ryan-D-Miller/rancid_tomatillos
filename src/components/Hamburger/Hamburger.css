@@ -42,7 +42,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-menu-wrap {
   position: fixed;
   left: 0 !important;
-  height: 20% !important;
+  height: calc(10vh + 110px) !important;
   width: 100% !important;
 }
 
