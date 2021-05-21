@@ -14,10 +14,9 @@
 
 .header_title {
   padding-bottom: 1em 0;
-
 }
 
-.focus>img {
+.focus > img {
   max-width: 100%;
   height: auto;
 }
@@ -29,11 +28,11 @@
   padding-bottom: 2em;
 }
 
-.focus-header>h1 {
+.focus-header > h1 {
   align-self: center;
 }
 
-.focus-header>button {
+.focus-header > button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +40,7 @@
   margin: 1em 0 0 1em;
 }
 
-.focus-header>button:hover {
+.focus-header > button:hover {
   cursor: pointer;
 }
 
@@ -57,5 +56,5 @@
 }
 
 .top_line {
-  border-top: .1em solid white;
+  border-top: 0.1em solid white;
 }

@@ -1,10 +1,9 @@
 .dashboard {
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-    color: #EFEEA1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  color: #efeea1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
