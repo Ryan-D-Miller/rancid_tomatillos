@@ -1,44 +1,54 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 8em;
-    background-color: #89AE92;
-    margin-bottom: 50px;
-    color: white;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8em;
+  background-color: #89ae92;
+  margin-bottom: 50px;
+  color: white;
+  width: 100%;
+  z-index: 9999;
 }
 
 form {
-    width: 13em;
-    height: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: .3em;
-    margin-left: 7em;
+  width: 13em;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.3em;
+  margin-left: 7em;
 }
 
-form>* {
-    height: 2em;
-    width: 100%;
-    border: none;
-    box-shadow:  5px 5px 10px #7b9d83,
-             -5px -5px 10px #97bfa1;
-    border-radius: 2px;
+form > * {
+  height: 2em;
+  width: 100%;
+  border: none;
+  box-shadow: 5px 5px 10px #7b9d83, -5px -5px 10px #97bfa1;
+  border-radius: 2px;
 }
 
 form:hover select {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .logo {
-    height: 100%;
-    border-radius: 5px;
-    margin-right: 4em;
+  height: 100%;
+  border-radius: 5px;
+  margin-right: 4em;
 }
 
 .logo:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 625px) {
+  .header {
+    justify-content: center;
+  }
+  .logo {
+    z-index: 2000;
+    margin: 0;
+  }
 }
