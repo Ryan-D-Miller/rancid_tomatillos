@@ -8,6 +8,8 @@ import {
 } from '../../apiCalls'
 import { Link} from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
+import {  CSSTransitionGroup } from 'react-transition-group';
+// import ReactCSSTransitionGroup from 'react-transition-group';
 
 class App extends Component {
   constructor() {
@@ -156,7 +158,8 @@ class App extends Component {
     displayMovies = () => {
         if (this.state.moviesToDisplay) {
             const selectedMovies = this.selectMoviesToDisplay();
-            return selectedMovies.map(m => <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
+          return selectedMovies.map(m => 
+            <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
             /></Link>);
         }
     }
