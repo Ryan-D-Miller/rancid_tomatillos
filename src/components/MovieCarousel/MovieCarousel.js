@@ -10,8 +10,8 @@ export default function MovieCarousel({ displayMovies, updateDisplayStart }) {
     <section className="carousel">
       <CarouselButton direction={"left"} updateDisplayStart={updateDisplayStart} />
       <CSSTransitionGroup className="carousel" transitionName="slideIn"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={100}>
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={1}>
         {movies}
       </CSSTransitionGroup>
       <CarouselButton direction={"right"} updateDisplayStart={updateDisplayStart} />

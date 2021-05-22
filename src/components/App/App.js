@@ -5,7 +5,7 @@ import './App.css';
 import { getMovies } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
-import {  CSSTransitionGroup } from 'react-transition-group';
+// import {  CSSTransitionGroup } from 'react-transition-group';
 // import ReactCSSTransitionGroup from 'react-transition-group';
 
 class App extends Component {
@@ -188,16 +188,6 @@ class App extends Component {
     return movies;
   };
 
-<<<<<<< HEAD
-  displayMovies = () => {
-    if (this.state.moviesToDisplay) {
-      const selectedMovies = this.selectMoviesToDisplay();
-      return selectedMovies.map((m) => (
-        <Link to={`/${m.id}`} className='card' key={m.id}>
-          <MovieCard movie={m} />
-        </Link>
-      ));
-=======
     displayMovies = () => {
         if (this.state.moviesToDisplay) {
             const selectedMovies = this.selectMoviesToDisplay();
@@ -205,9 +195,8 @@ class App extends Component {
             <Link to={`/${m.id}`} className="card" key={m.id}><MovieCard movie={m}
             /></Link>);
         }
->>>>>>> 9c4da17492ebd4555f52d5c7eabf33b81d60fa82
     }
-  };
+  // };
 
   render() {
     return (
