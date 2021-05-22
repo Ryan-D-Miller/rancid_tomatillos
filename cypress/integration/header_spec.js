@@ -35,4 +35,11 @@ describe('Header', () => {
     cy.get('select').select('Rating');
     cy.get('.card').first().children().first().should('have.id', 726739)
   });
+
+  it('Should be able to search for a movie', () => {
+    cy.get('input')
+    .type('mulan')
+    cy.get('.card').first().children()
+    .should('have.id', )
+  })
 });
