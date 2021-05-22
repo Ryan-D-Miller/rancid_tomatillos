@@ -1,5 +1,6 @@
 import './MovieCarousel.css'
 import CarouselButton from '../CarouselButton/CarouselButton';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 export default function MovieCarousel({ displayMovies, updateDisplayStart }) {
   const movies = displayMovies();
@@ -8,7 +9,11 @@ export default function MovieCarousel({ displayMovies, updateDisplayStart }) {
   return (
     <section className="carousel">
       <CarouselButton direction={"left"} updateDisplayStart={updateDisplayStart} />
-      {movies}
+      <CSSTransitionGroup className="carousel" transitionName="slideIn"
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={100}>
+        {movies}
+      </CSSTransitionGroup>
       <CarouselButton direction={"right"} updateDisplayStart={updateDisplayStart} />
     </section>
   )} else {
