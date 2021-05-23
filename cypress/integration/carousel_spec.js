@@ -24,4 +24,17 @@ describe('Carsouel', () => {
     cy.get('.carousel').find('.card').first().click();
     cy.contains('Overview');
   });
+
+  it('Should change the number of movies displayed depending on screen width', () => {
+      cy.viewport(1300, 1200);
+      cy.get('.carousel').children().should('have.length', 7);
+      cy.viewport(1100, 1200);
+      cy.get('.carousel').children().should('have.length', 6);
+      cy.viewport(900, 1200);
+      cy.get('.carousel').children().should('have.length', 5);
+      cy.viewport(700, 1200);
+      cy.get('.carousel').children().should('have.length', 4);
+      cy.viewport(600, 1200);
+      cy.get('.carousel').children().should('have.length', 3);
+    })
 });
