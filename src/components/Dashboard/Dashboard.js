@@ -3,6 +3,7 @@ import MovieCarousel from '../MovieCarousel/MovieCarousel';
 import MovieFocus from '../MovieFocus/MovieFocus'
 import './Dashboard.css';
 import {  Route, Switch, Redirect } from 'react-router-dom';
+import { CSSTransitionGroup, CSSTransition } from 'react-transition-group';
 
 export default function Dashboard(props) {
 
@@ -17,7 +18,8 @@ export default function Dashboard(props) {
                             return <MovieCarousel
                                 checkMoviesLength={props.checkMoviesLength}
                                 displayMovies={props.displayMovies}
-                                updateDisplayStart={props.updateDisplayStart} />
+                                updateDisplayStart={props.updateDisplayStart}
+                                moveDirection={props.moveDirection} />
                         }}
                     />
                     <Route

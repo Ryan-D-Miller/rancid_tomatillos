@@ -20,7 +20,8 @@ class App extends Component {
       fetchDone: false,
       moviesToDisplay: [],
       displayStart: 0,
-      displayRange: 5
+      displayRange: 5,
+      moveDirection: 'left'
     }
   }
 
@@ -127,10 +128,10 @@ class App extends Component {
   updateDisplayStart = (direction) => {
     if (direction === 'left') {
       const startingIndex = this.checkMoviesLength(this.state.displayStart - this.state.displayRange)
-      this.setState({ displayStart: startingIndex })
+      this.setState({ displayStart: startingIndex, moveDirection: "left" })
     } else {
       const startingIndex = this.checkMoviesLength(this.state.displayStart + this.state.displayRange)
-      this.setState({ displayStart: startingIndex })
+      this.setState({ displayStart: startingIndex, moveDirection: "right" })
     }
   }
 
@@ -168,7 +169,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header movies={this.state.moviesToDisplay} filterMovies={this.filterMovies} searchMovies={this.searchMovies} />
-        {this.state.fetchDone && <Dashboard movies={this.state.moviesToDisplay} filtered={this.state.filtered} 
+        {this.state.fetchDone && <Dashboard moveDirection={this.state.moveDirection} movies={this.state.moviesToDisplay} filtered={this.state.filtered} 
           checkMoviesLength={this.checkMoviesLength}
           displayMovies={this.displayMovies}
           updateDisplayStart={this.updateDisplayStart} />}
