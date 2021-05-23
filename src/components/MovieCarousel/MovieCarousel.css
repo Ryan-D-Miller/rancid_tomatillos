@@ -21,18 +21,20 @@
 }
 
 .slideIn-right-enter.slideIn-right-enter-active {
-  transform: translate(38vw,0);
+  transform: translate(41vw,0);
   opacity: 1;
-  transition: all 1500ms ease-in-out;
+  transition: all 1500ms ease-out;
 }
 
 .slideIn-right-leave {
   transform: translate(-35vw, 0);
+  opacity: 1;
 }
 
 .slideIn-right-leave.slideIn-right-leave-active {
   animation-delay: 1200ms;
   transform: translateX(42vw);
+  opacity: 0;
   transition: all 1250ms ease-in-out;
   
 }
@@ -44,16 +46,18 @@
 }
 
 .slideIn-left-enter.slideIn-left-enter-active {
-  transform: translate(35vw,0);
+  transform: translate(42vw,0);
   opacity: 1;
-  transition: all 1500ms ease-in-out;
+  transition: all 1500ms ease-out;
 }
 
 .slideIn-left-leave {
   transform: translate(-30vw, 0);
+  opacity: 1;
 }
 
 .slideIn-left-leave.slideIn-left-leave-active {
   transform: translateX(-120vw);
+  opacity: 0;
   transition: all 1250ms ease-in-out;
 }

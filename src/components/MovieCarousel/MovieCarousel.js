@@ -12,7 +12,7 @@ export default function MovieCarousel({ displayMovies, updateDisplayStart, moveD
       <CSSTransitionGroup transitionName={`slideIn-${moveDirection}`}
         transitionEnterTimeout={0}
         transitionLeaveTimeout={1500}
-        className='carousel'>
+        className='carousel card-carousel'>
           {movies} 
       </CSSTransitionGroup>
       <CarouselButton direction={"right"} updateDisplayStart={updateDisplayStart} />
