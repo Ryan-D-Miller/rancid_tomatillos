@@ -22,6 +22,7 @@ This project emulates the functions of a movie website by allowing users to view
 
 1. Fork this repo, then install the project on your local machine by entering `git clone`
 2. Install the necessary packages & dependencies by entering `npm install`
+3. Start the React server by entering `npm start`
 5. To use the app enter `http://localhost:3000/` in your browser
 
 * To run the tests enter `npx cypress open`
