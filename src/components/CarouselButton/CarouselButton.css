@@ -3,8 +3,8 @@
     height: 3em;
     border: none;
     background: transparent;
-    border-top: .4rem solid black;
-    border-right: .4rem solid black;
+    border-top: .4rem solid #373a47;
+    border-right: .4rem solid #373a47;
     transition: all .2s ease-out;
     position: absolute;
     margin: 0;
@@ -20,7 +20,7 @@
 .carousel-button:hover {
   border-top: .4rem solid #95ad95;
   border-right: .4rem solid #95ad95;
-  box-shadow: .2rem -.2rem 0 black;
+  box-shadow: .2rem -.2rem 0 #373a47;
   cursor: pointer;
 }
 
