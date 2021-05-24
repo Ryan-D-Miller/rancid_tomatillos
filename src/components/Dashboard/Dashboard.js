@@ -19,7 +19,8 @@ export default function Dashboard(props) {
                                 checkMoviesLength={props.checkMoviesLength}
                                 displayMovies={props.displayMovies}
                                 updateDisplayStart={props.updateDisplayStart}
-                                moveDirection={props.moveDirection} />
+                                moveDirection={props.moveDirection} 
+                                isButtonDisabled={props.isButtonDisabled}/>
                         }}
                     />
                     <Route

@@ -21,7 +21,8 @@ class App extends Component {
       moviesToDisplay: [],
       displayStart: 0,
       displayRange: 5,
-      moveDirection: 'left'
+      moveDirection: '',
+      isButtonDisabled: false
     }
   }
 
@@ -128,10 +129,12 @@ class App extends Component {
   updateDisplayStart = (direction) => {
     if (direction === 'left') {
       const startingIndex = this.checkMoviesLength(this.state.displayStart - this.state.displayRange)
-      this.setState({ displayStart: startingIndex, moveDirection: "left" })
+      this.setState({ displayStart: startingIndex, moveDirection: "left", isButtonDisabled: true })
+      setTimeout(() => this.setState({isButtonDisabled: false}), 1500)
     } else {
       const startingIndex = this.checkMoviesLength(this.state.displayStart + this.state.displayRange)
-      this.setState({ displayStart: startingIndex, moveDirection: "right" })
+      this.setState({ displayStart: startingIndex, moveDirection: "right", isButtonDisabled: true  })
+      setTimeout(() => this.setState({ isButtonDisabled: false }), 1500)
     }
   }
 
@@ -172,7 +175,8 @@ class App extends Component {
         {this.state.fetchDone && <Dashboard moveDirection={this.state.moveDirection} movies={this.state.moviesToDisplay} filtered={this.state.filtered} 
           checkMoviesLength={this.checkMoviesLength}
           displayMovies={this.displayMovies}
-          updateDisplayStart={this.updateDisplayStart} />}
+          updateDisplayStart={this.updateDisplayStart}
+          isButtonDisabled={this.state.isButtonDisabled} />}
         {this.state.error && <p>{this.state.error}</p>}
       </div>
     )
