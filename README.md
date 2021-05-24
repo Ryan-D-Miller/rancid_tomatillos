@@ -43,7 +43,7 @@ This project emulates the functions of a movie website by allowing users to view
 
 ## Preview
 
-![Name:](giphylink)
+![Page Preview:](./rancid-preview.gif)
 
 ## Deployed Site
 
