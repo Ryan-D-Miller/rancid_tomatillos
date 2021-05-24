@@ -1,6 +1,6 @@
 .carousel{
     box-sizing: border-box;
-    margin: 5em 0 0 0;
+    margin: 1em 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -21,7 +21,7 @@
 }
 
 .slideIn-right-enter.slideIn-right-enter-active {
-  transform: translate(41vw,0);
+  transform: translate(42vw,0);
   opacity: 1;
   transition: all 1500ms ease-out;
 }
@@ -33,7 +33,7 @@
 
 .slideIn-right-leave.slideIn-right-leave-active {
   animation-delay: 1200ms;
-  transform: translateX(42vw);
+  transform: translate(42vw, 0);
   opacity: 0;
   transition: all 1250ms ease-in-out;
   
@@ -46,7 +46,7 @@
 }
 
 .slideIn-left-enter.slideIn-left-enter-active {
-  transform: translate(36.5vw,0);
+  transform: translate(42vw,0);
   opacity: 1;
   transition: all 1500ms ease-out;
 }
@@ -57,7 +57,7 @@
 }
 
 .slideIn-left-leave.slideIn-left-leave-active {
-  transform: translateX(-120vw);
+  transform: translate(-120vw, 0);
   opacity: 0;
   transition: all 1250ms ease-in-out;
 }
