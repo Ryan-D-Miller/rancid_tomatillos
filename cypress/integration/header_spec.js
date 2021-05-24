@@ -38,6 +38,7 @@ describe('Header', () => {
 
     it('Should be able to search for a movie', () => {
         cy.get('input').type('mulan');
+        cy.wait(1501);
         cy.get('.card').first().children().should('have.id', '337401');
     });
 
