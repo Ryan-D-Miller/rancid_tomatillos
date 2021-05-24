@@ -3,7 +3,7 @@
   min-width: 13em;
   max-width: 18em;
   height: 30em;
-  margin: 0 1em;
+  margin: 0 0.5em;
   background-size: cover;
   background-attachment: initial;
   background-repeat: no-repeat;
@@ -12,14 +12,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 2px 3px 6px black; 
+  box-shadow: 2px 3px 6px black;
   color: white;
   border-radius: 8px;
   position:inherit;
 }
 
 .card:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .card-header {
@@ -31,7 +31,7 @@
   padding: 2em 0;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  transition: opacity .2s ease-in
+  transition: opacity 0.2s ease-in;
 }
 
 .card-footer {
@@ -42,7 +42,7 @@
   justify-content: space-around;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  transition: opacity .2s ease-in
+  transition: opacity 0.2s ease-in;
 }
 
 .card:hover .card-header {
@@ -51,4 +51,14 @@
 
 .card:hover .card-footer {
   opacity: 1;
+}
+
+@media only screen and (max-width: 625px) {
+  .card-header {
+    opacity: 1;
+  }
+  
+  .card-footer {
+    opacity: 1;
+  }
 }

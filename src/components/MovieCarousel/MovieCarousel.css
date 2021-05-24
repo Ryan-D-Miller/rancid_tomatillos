@@ -57,3 +57,12 @@
   transition: all 1250ms linear;
 }
 
+
+@media only screen and (max-width: 625px) {
+  .search-error {
+    padding-top: 2em;
+  }
+  .carousel {
+    padding-top: 2em;
+  }
+}
