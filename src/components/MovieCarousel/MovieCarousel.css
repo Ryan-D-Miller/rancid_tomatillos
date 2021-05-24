@@ -1,27 +1,27 @@
-.carousel{
-    box-sizing: border-box;
-    margin: 1em 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 94%;
-    height: 100%;
-    overflow: hidden;
+.carousel {
+  box-sizing: border-box;
+  margin: 1em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 94%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .search-error {
-    color: black;
-    width: 70%;
-    font-size: 3em;
+  color: black;
+  width: 70%;
+  font-size: 3em;
 }
 .slideIn-right-enter {
-    opacity: 0;
+  opacity: 0;
   transform: translate(0, 0);
 }
 
 .slideIn-right-enter.slideIn-right-enter-active {
-  transform: translate(42vw,0);
+  transform: translate(42vw, 0);
   opacity: 1;
   transition: all 1500ms ease-out;
 }
@@ -36,17 +36,15 @@
   transform: translate(42vw, 0);
   opacity: 0;
   transition: all 1250ms ease-in-out;
-  
 }
 
-
 .slideIn-left-enter {
-    opacity: 0;
+  opacity: 0;
   transform: translate(100vw, 0);
 }
 
 .slideIn-left-enter.slideIn-left-enter-active {
-  transform: translate(42vw,0);
+  transform: translate(42vw, 0);
   opacity: 1;
   transition: all 1500ms ease-out;
 }
