@@ -1,16 +1,20 @@
 import React from 'react';
-import './CarouselButton.css'
+import './CarouselButton.css';
 
-export default function CarouselButton({ direction, updateDisplayStart }) {
+
+export default function CarouselButton({ direction, updateDisplayStart, isButtonDisabled }) {
+    console.log(isButtonDisabled);
     return (
         <div className='carousel-button-wrapper'>
             <button
+                disabled={isButtonDisabled}
                 className={
                     `carousel-button 
                     ${direction === 'right' ? 'arrow-right ' : 'arrow-left '}
                     `}
-                onClick={() => updateDisplayStart(direction)}>
+                onClick={() => updateDisplayStart(direction)} >
             </button>
         </div>
     )
 }
+
