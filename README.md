@@ -47,7 +47,7 @@ This project emulates the functions of a movie website by allowing users to view
 
 ## Deployed Site
 
-[Rancid Tomatillos](http://spotless-channel.surge.sh/)
+[Rancid Tomatillos](http://greedy-distance.surge.sh/)
 
 ## Authors
 
