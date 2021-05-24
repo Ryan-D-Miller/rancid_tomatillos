@@ -22,14 +22,14 @@ describe('Movie Focus', () => {
     });
 
     it('should be able to click the x button to go back to the main movie view', () => {
-        cy.get('button').click()
+        cy.get('.link').click()
         cy.get('.carousel')
             .children('.card')
             .contains('Money Plane')
     });
 
     it('Should change the url path when exiting Movie Focus', () => {
-        cy.get('button').click()
+        cy.get('.link').click()
         cy.url().should('eq', 'http://localhost:3000/')
     });
 
