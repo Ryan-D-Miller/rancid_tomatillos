@@ -1,5 +1,6 @@
 import React from 'react';
-import './CarouselButton.css'
+import './CarouselButton.css';
+
 
 export default function CarouselButton({ direction, updateDisplayStart, isButtonDisabled }) {
     console.log(isButtonDisabled);
@@ -16,3 +17,4 @@ export default function CarouselButton({ direction, updateDisplayStart, isButton
         </div>
     )
 }
+
