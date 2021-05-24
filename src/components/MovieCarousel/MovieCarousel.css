@@ -46,7 +46,7 @@
 }
 
 .slideIn-left-enter.slideIn-left-enter-active {
-  transform: translate(42vw,0);
+  transform: translate(36.5vw,0);
   opacity: 1;
   transition: all 1500ms ease-out;
 }
