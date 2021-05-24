@@ -49,4 +49,5 @@ This project emulates the functions of a movie website by allowing users to view
 ## Authors
 
 [Ryan Miller](https://github.com/ryan-d-miller)
+
 [Chris Anderson](https://github.com/mistercanderson)
