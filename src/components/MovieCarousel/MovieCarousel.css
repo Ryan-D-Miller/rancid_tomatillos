@@ -57,6 +57,24 @@
   transition: all 1250ms linear;
 }
 
+.slideIn-none-enter {
+    opacity: 0;
+  transform: translate(0, 0);
+}
+
+.slideIn-none-enter.slideIn-none-enter-active {
+  opacity: 1;
+  transition: all 1500ms ease-out;
+}
+
+.slideIn-none-leave {
+  display: none;
+}
+
+.slideIn-none-leave.slideIn-none-leave-active {
+  display: none;
+}
+
 
 @media only screen and (max-width: 625px) {
   .search-error {

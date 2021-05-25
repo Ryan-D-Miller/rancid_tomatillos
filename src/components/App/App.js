@@ -86,7 +86,7 @@ class App extends Component {
               }
               return 0;
             }),
-            displayStart: 0,
+            displayStart: 0, moveDirection: 'none'
           });
           break;
         case 'release':
@@ -100,7 +100,7 @@ class App extends Component {
               }
               return 0;
             }),
-            displayStart: 0,
+            displayStart: 0, moveDirection: 'none'
           });
           break;
         case 'rating':
@@ -108,13 +108,13 @@ class App extends Component {
             moviesToDisplay: this.state.moviesToDisplay.sort((a, b) => {
               return b.average_rating - a.average_rating;
             }),
-            displayStart: 0,
+            displayStart: 0, moveDirection: 'none'
           });
 
           break;
         case '':
           this.setState({
-            moviesToDisplay: this.state.movies,
+            moviesToDisplay: this.state.movies, moveDirection: 'none'
           });
           break;
       }
@@ -129,14 +129,14 @@ class App extends Component {
       let filteredMovies = this.state.movies.filter((m) =>
         m.title.toUpperCase().includes(query)
       );
-      this.setState({ moviesToDisplay: filteredMovies });
+      this.setState({ moviesToDisplay: filteredMovies, moveDirection: 'none' });
     } else if (
       query &&
       !this.state.movies.some((m) => m.title.toUpperCase().includes(query))
     ) {
-      this.setState({ moviesToDisplay: '' });
+      this.setState({ moviesToDisplay: '', moveDirection: 'none' });
     } else {
-      this.setState({ moviesToDisplay: this.state.movies });
+      this.setState({ moviesToDisplay: this.state.movies, moveDirection: 'none' });
     }
   };
 
